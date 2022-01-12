@@ -8,6 +8,7 @@ public class PetStoreAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PetStoreAppApplication.class, args);
+		System.out.println("started");
 	}
 
 }
