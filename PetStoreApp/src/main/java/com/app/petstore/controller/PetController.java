@@ -1,6 +1,7 @@
 package com.app.petstore.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,9 +30,9 @@ public class PetController {
 		}
 
 	}
-	
+
 	@PutMapping("/pet/{addpet}")
-	public String updatePet(@PathVariable(value = "addpet") Integer addpet,@RequestBody Pet pet) {
+	public String updatePet(@PathVariable(value = "addpet") Integer addpet, @RequestBody Pet pet) {
 		String message = null;
 		if (pet != null) {
 			petService.updatePet(addpet, pet);
@@ -41,18 +42,28 @@ public class PetController {
 		}
 
 	}
-	
-	
+
 	@GetMapping("/get/{id}")
 	public Pet getPet(@PathVariable(value = "id") Integer id) {
-		Pet pet =null;
+		Pet pet = null;
 		if (id != null) {
-			 pet = petService.getPet(id);
+			pet = petService.getPet(id);
 			return pet;
 		} else {
 			return pet;
 		}
-		
+
 	}
-	
+
+	@DeleteMapping("/pet/{id}")
+	public String delete(@PathVariable Integer id) {
+		String message = null;
+		if (id != null) {
+			petService.deletPet(id);
+			return message = "Pet deleted succesfully !!!";
+		} else {
+			return message = "Pet deleted succesfully !!!";
+		}
+	}
+
 }

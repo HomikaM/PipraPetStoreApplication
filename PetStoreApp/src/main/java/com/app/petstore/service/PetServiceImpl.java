@@ -52,6 +52,18 @@ public class PetServiceImpl implements PetService {
 		return updatedPet;
 	}
 
+	@Override
+	public String deletPet(Integer id) {
+		String message = null;
+		if (id != null) {
+		petRepo.deleteById(id);
+		return "Pet deleted succesfully !!!";
+		}
+		else {
+			return  "Pet deleted succesfully !!!";
+			}
+		}
+	}
 
 
-}
+
